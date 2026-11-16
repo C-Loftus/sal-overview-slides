@@ -1,9 +1,7 @@
 # SAL: A Graph on Iceberg
 
 Slides for a ~12-minute talk on [SAL](https://cgs-earth.github.io/sal/) (the Semantic
-Accessibility Layer) at the [2026 CGA Conference](https://gis.harvard.edu/call-papers-2026-cga-conference)
-— *Celebrating Geographic Analysis: Past, Present & Future* — Harvard Center for
-Geographic Analysis, Oct 2–3, 2026.
+Accessibility Layer).
 
 Built with [Slidev](https://sli.dev).
 

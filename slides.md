@@ -5,8 +5,6 @@ info: |
   ## SAL: A Graph on Iceberg
   Building linked, geospatial knowledge graphs without a graph database.
 
-  2026 CGA Conference — Celebrating Geographic Analysis: Past, Present & Future
-  Harvard Center for Geographic Analysis · Oct 2–3, 2026
 class: text-center cover-slide
 fonts:
   sans: Inter
@@ -25,9 +23,6 @@ duration: 12min
 
 <div class="mt-12 text-lg opacity-95">
 Colton Loftus · Center for Geospatial Solutions (CGS) Lincoln Institute of Land Policy
-</div>
-<div class="mt-2 opacity-80">
-2026 CGA Conference · Harvard Center for Geographic Analysis
 </div>
 
 <img src="/cgs-logo-white.png" class="abs-br m-8 h-8" />
@@ -186,7 +181,7 @@ reach, sits within a watershed. That's a graph — geometry is just another edge
 </div>
 
 <!--
-Three points, one per card. The URI point is the one that matters for a CGA
+Three points, one per card. The URI point is the one that matters for this
 audience: linking across organizations without agreeing on a schema.
 -->
 
