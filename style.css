@@ -608,6 +608,11 @@ div.slidev-layout.shot-slide {
   color: var(--cgs-pavement);
 }
 
+.slidev-layout .callout-future p.callout-link {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+}
+
 .panel {
   background: white;
   border-radius: 12px;
@@ -820,9 +825,24 @@ div.slidev-layout.shot-slide {
 /* ---- About me slide ---- */
 .about {
   display: grid;
-  grid-template-columns: 12rem 1fr;
-  align-items: center;
+  grid-template-columns: 13rem 1fr;
+  align-items: start;
   column-gap: 3rem;
+}
+
+/* Portrait with name and role stacked beneath it */
+.about-id {
+  text-align: center;
+}
+
+.about-id .about-name {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+
+.about-id .about-role {
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
 /* Gradient ring around the portrait */
@@ -956,4 +976,71 @@ div.slidev-layout.shot-slide {
 
 .go-box .about-tags {
   margin-top: 0;
+}
+
+/* Sub-points under a feature-row heading (Takeaways slide) */
+.slidev-layout .feature-list .takeaway-bullets {
+  margin: 0.35rem 0 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+  font-size: 1.1rem;
+  color: var(--cgs-pavement);
+}
+
+.slidev-layout .feature-list .takeaway-bullets li {
+  margin: 0.1rem 0;
+}
+
+/* Takeaways: the key problem row points down to the two solution rows */
+.takeaway-arrow {
+  display: flex;
+  justify-content: center;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--cgs-green);
+  margin: 0.2rem 0 0;
+}
+
+.takeaway-label {
+  margin-bottom: 0.3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cgs-green);
+}
+
+.feature-list.takeaways .takeaway-key {
+  padding: 0.9rem 1.2rem;
+  border: 2px solid var(--cgs-green);
+  border-radius: 14px;
+  background: var(--cgs-cumulus);
+}
+
+/* Tighter rows so the Takeaways stack clears the corner logo */
+.feature-list.takeaways .feature-row {
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+.feature-list.takeaways .takeaway-key {
+  grid-template-columns: 1fr;
+  padding: 0.7rem 1.2rem;
+}
+
+.slidev-layout .feature-list.takeaways h3 {
+  font-size: 1.35rem;
+}
+
+/* Icon badge holding a brand logo instead of an icon glyph */
+.icon-badge.logo-badge {
+  background: white;
+  box-shadow: 0 1px 6px rgba(72, 83, 91, 0.15);
+}
+
+.icon-badge.logo-badge img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
 }

@@ -16,10 +16,9 @@ duration: 12min
 
 <GraphMotif />
 
-# SAL
-<p class="text-2xl font-semibold tracking-wide" style="opacity: 0.6">Semantic Accessibility Layer</p>
+# Reproducible Geospatial Knowledge Graphs with Apache Iceberg
 
-### A Build System and Query Engine for Geospatial Knowledge Graphs
+### Lessons from building <a href="https://github.com/cgs-earth/sal" target="_blank">SAL</a>, the Semantic Accessibility Layer
 
 <div class="mt-12 text-lg opacity-95">
 Colton Loftus · Center for Geospatial Solutions (CGS) Lincoln Institute of Land Policy
@@ -37,23 +36,24 @@ the whole talk.
 
 # About me
 
-<div class="about mt-6">
+<div class="about mt-2">
 
+<div class="about-id">
 <div class="about-photo">
 <img src="/colton.webp" alt="Portrait of Colton Loftus" />
 </div>
+<div class="about-name">Colton Loftus</div>
+</div>
 
 <div>
-<div class="about-name">Colton Loftus</div>
-<div class="about-role">Software Engineer · Center for Geospatial Solutions</div>
 
-<div class="feature-list solo mt-5">
+<div class="feature-list solo">
 
 <div class="feature-row">
-<div class="icon-badge"><carbon:earth-filled /></div>
+<div class="icon-badge"><carbon:laptop /></div>
 <div>
-<h3>Large-scale geospatial data systems</h3>
-<p>My focus is designing and building data infrastructure for geoscience use cases.</p>
+<h3>Software engineer at the Lincoln Institute of Land Policy</h3>
+<p>Data engineering at the Center for Geospatial Solutions, often for hydrology and geoscience.</p>
 </div>
 </div>
 
@@ -99,7 +99,7 @@ requirements come from.
 
 ---
 
-# Teams face 3 challenges when sharing geospatial open data
+# Teams often face 3 challenges when sharing geospatial open data
 
 <div class="feature-list solo mt-8">
 
@@ -107,7 +107,6 @@ requirements come from.
 <div class="icon-badge"><carbon:money /></div>
 <div>
 <h3>Budget to host data long term</h3>
-<p><strong>SAL:</strong> The graph is just files in S3; can use cheap long-term storage like OCI registries</p>
 </div>
 </div>
 
@@ -115,15 +114,13 @@ requirements come from.
 <div class="icon-badge"><carbon:compare /></div>
 <div>
 <h3>Semantic definitions for properly integrating data</h3>
-<p><strong>SAL:</strong> Every term is linked to a standardized RDF vocabulary</p>
 </div>
 </div>
 
 <div class="feature-row">
 <div class="icon-badge"><carbon:fingerprint-recognition /></div>
 <div>
-<h3>Tracking provenance, both the data and the source code that produced it</h3>
-<p><strong>SAL:</strong> Each build links the data to the exact git commit that produced it.</p>
+<h3>Tracking provenance and edits, both of the data and the source code that produced it</h3>
 </div>
 </div>
 
@@ -156,7 +153,7 @@ reach, sits within a watershed. That's a graph — geometry is just another edge
 
 ---
 
-# Graphs can have advantages over relational databases for geospatial data
+# Graph databases can have advantages over relational databases for geospatial data
 
 <div class="grid grid-cols-3 gap-6 mt-14">
 
@@ -183,6 +180,53 @@ reach, sits within a watershed. That's a graph — geometry is just another edge
 <!--
 Three points, one per card. The URI point is the one that matters for this
 audience: linking across organizations without agreeing on a schema.
+-->
+
+---
+# Hidden for now: too in depth for this talk. Remove `hide: true` to restore.
+hide: true
+---
+
+# Graphs and ontologies are going mainstream
+
+<p class="text-xl -mt-1" style="color: var(--cgs-pavement); opacity: 0.7">Once a niche for semantic web researchers, ontologies are now a core feature of major data platforms.<br />The scale and complexity of modern data systems, and AI agents that need context, are driving the shift.</p>
+
+<div class="feature-list dense mt-6">
+
+<div class="feature-row">
+<div class="icon-badge"><carbon:data-base /></div>
+<h3>Databricks Genie Ontology</h3>
+<p>A knowledge graph built from Unity Catalog tables, queries, and dashboards that grounds Databricks' Genie agents.</p>
+</div>
+
+<div class="feature-row">
+<div class="icon-badge"><carbon:cloud-app /></div>
+<h3>Microsoft Fabric IQ</h3>
+<p>An ontology of business entities, properties, and relationships bound to Fabric data and shared across agents.</p>
+</div>
+
+<div class="feature-row">
+<div class="icon-badge"><carbon:network-3 /></div>
+<h3>Palantir Foundry Ontology</h3>
+<p>Models an organization's objects, links, and actions on top of its datasets; the core of the Foundry platform.</p>
+</div>
+
+<div class="feature-row">
+<div class="icon-badge"><carbon:chip /></div>
+<h3>NVIDIA Auto Ontology</h3>
+<p>An open-source library that builds a semantic layer from enterprise metadata so agents can write and verify SQL. <a href="https://github.com/NVIDIA/auto-ontology" target="_blank">github.com/NVIDIA/auto-ontology</a></p>
+</div>
+
+</div>
+
+<!--
+The point: graphs and ontologies aren't exotic anymore. Databricks (Genie
+Ontology, announced at Data + AI Summit 2026, public preview), Microsoft
+(Fabric IQ), Palantir (Foundry Ontology) and NVIDIA (Auto Ontology, open
+source) all ship them, mostly to give AI agents business context. Note these
+are looser than formal RDF/OWL ontologies, which is exactly the gap SAL's
+standardized vocabularies fill. That sets up the next question: if graphs
+are mainstream, why doesn't everyone run a graph database?
 -->
 
 ---
@@ -559,18 +603,20 @@ hideLogo: true
 </div>
 
 <div class="callout-future mt-4">
-<div class="icon-badge"><ph:share-network /></div>
+<div class="icon-badge"><carbon:catalog /></div>
 <div>
-<span class="pill pill-blue">Coming soon</span>
-<h3>sal pub</h3>
-<p>Publish and sync data products through the <strong>fediverse</strong> so data can be announced, followed, and shared across a distributed network of instances, instead of living in one central registry.</p>
+<span class="pill pill-blue">In progress</span>
+<h3>Iceberg STAC</h3>
+<p>Describe Iceberg tables within <strong>STAC</strong> and <strong>Portolan</strong> catalogs, so a graph or vector table can be discovered, searched, and versioned alongside the rest of an organization's geospatial data.</p>
+<p class="callout-link"><carbon:logo-github class="inline-block align-middle mr-1" /><a href="https://github.com/portolan-sdi/stac-iceberg-extension" target="_blank">github.com/portolan-sdi/stac-iceberg-extension</a></p>
 </div>
 </div>
 
 <!--
 Today's story first — composable graphs, OCI artifacts, free hosting,
-rollback. Then close on where this is going: sal pub, a future component
-that publishes data products onto the fediverse for distributed sharing.
+rollback. Then close on what's in progress: Iceberg STAC, describing
+Iceberg tables inside STAC / Portolan catalogs so they're discoverable next
+to the rest of an organization's geospatial data.
 -->
 
 ---
@@ -621,6 +667,43 @@ Show SQL on. Invite people to open the link and run queries themselves.
 -->
 
 ---
+
+# Takeaways
+
+<div class="feature-list solo takeaways mt-4">
+
+<div class="takeaway-label">Key Challenge for Geospatial Data</div>
+
+<div class="feature-row takeaway-key">
+<div>
+<h3>Agents, funding disruptions, and novel ML workloads require data with</h3>
+<ul class="takeaway-bullets">
+<li>Flexible and performant queries</li>
+<li>Clear lineage and semantics</li>
+<li>Hosting that is simple, portable, and low-cost</li>
+</ul>
+</div>
+</div>
+
+<div class="takeaway-arrow"><carbon:arrow-down /></div>
+
+<div class="feature-row">
+<div class="icon-badge logo-badge"><img src="/iceberg.webp" alt="Apache Iceberg logo" /></div>
+<div>
+<h3>Iceberg allows for a standardized, performant, and portable way of tracking changes for geospatial vector data</h3>
+</div>
+</div>
+
+<div class="feature-row">
+<div class="icon-badge"><carbon:network-4 /></div>
+<div>
+<h3>Graphs and formal semantics allow for flexible queries with clear definitions</h3>
+</div>
+</div>
+
+</div>
+
+---
 layout: center
 class: text-center cover-slide
 ---
@@ -634,9 +717,10 @@ class: text-center cover-slide
 <div>Scan for the slides</div>
 </div>
 
-<div class="mt-6 text-xl space-y-3">
+<div class="mt-3 text-xl"><carbon:logo-github class="inline-block align-middle mr-2" /><a href="https://github.com/cgs-earth/sal" target="_blank">github.com/cgs-earth/sal</a></div>
+
+<div class="mt-4 text-xl">
 <div><carbon:email class="inline-block align-middle mr-2" /><a href="mailto:cloftus@lincolninst.edu">cloftus@lincolninst.edu</a></div>
-<div><carbon:logo-github class="inline-block align-middle mr-2" /><a href="https://github.com/cgs-earth/sal" target="_blank">github.com/cgs-earth/sal</a></div>
 </div>
 
 <div class="mt-6 opacity-90">
